@@ -1,0 +1,22 @@
+-- Prevent duplicate GUI local player = game.Players.LocalPlayer if player:FindFirstChild("PlayerGui"):FindFirstChild("SoyHubUILoader") then return end
+
+-- Create UI local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui")) gui.Name = "SoyHubUILoader"
+
+-- Create Main Frame local frame = Instance.new("Frame", gui) frame.Size = UDim2.new(0, 300, 0, 200) frame.Position = UDim2.new(0.5, -150, 0.5, -100) frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30) frame.BorderSizePixel = 0 frame.Active = true frame.Draggable = true
+
+-- Title local title = Instance.new("TextLabel", frame) title.Size = UDim2.new(1, 0, 0, 30) title.Position = UDim2.new(0, 0, 0, 10) title.BackgroundTransparency = 1 title.Text = "🌿 SoyHubTool" title.TextColor3 = Color3.fromRGB(255, 255, 255) title.Font = Enum.Font.GothamBold title.TextSize = 18
+
+-- Subtitle local subtitle = Instance.new("TextLabel", frame) subtitle.Size = UDim2.new(1, 0, 0, 20) subtitle.Position = UDim2.new(0, 0, 0, 30) subtitle.BackgroundTransparency = 1 subtitle.Text = "🌳 Grow A Garden" subtitle.TextColor3 = Color3.fromRGB(180, 255, 180) subtitle.Font = Enum.Font.Gotham title.TextSize = 14
+
+-- Info Text local genText = Instance.new("TextLabel", frame) genText.Size = UDim2.new(1, -20, 0, 22) genText.Position = UDim2.new(0, 10, 0, 60) genText.BackgroundTransparency = 1 genText.Text = "⚙️ Script Loading Please Wait For A While..." genText.TextColor3 = Color3.fromRGB(255, 255, 255) genText.Font = Enum.Font.GothamMedium genText.TextSize = 14 genText.TextWrapped = true
+
+-- Loading Bar local barBg = Instance.new("Frame", frame) barBg.Size = UDim2.new(1, -40, 0, 10) barBg.Position = UDim2.new(0, 20, 0, 100) barBg.BackgroundColor3 = Color3.fromRGB(70, 70, 70) barBg.BorderSizePixel = 0
+
+local bar = Instance.new("Frame", barBg) bar.Size = UDim2.new(0, 0, 1, 0) bar.BackgroundColor3 = Color3.fromRGB(0, 200, 0) bar.BorderSizePixel = 0
+
+local percentText = Instance.new("TextLabel", frame) percentText.Size = UDim2.new(1, 0, 0, 20) percentText.Position = UDim2.new(0, 0, 0, 120) percentText.BackgroundTransparency = 1 percentText.Text = "0%" percentText.TextColor3 = Color3.fromRGB(255, 255, 255) percentText.Font = Enum.Font.GothamBold percentText.TextSize = 14 percentText.TextWrapped = true
+
+-- Start Button local startBtn = Instance.new("TextButton", frame) startBtn.Size = UDim2.new(0, 100, 0, 30) startBtn.Position = UDim2.new(0.5, -50, 1, -40) startBtn.Text = "Start" startBtn.BackgroundColor3 = Color3.fromRGB(50, 200, 50) startBtn.TextColor3 = Color3.fromRGB(255, 255, 255) startBtn.Font = Enum.Font.GothamBold startBtn.TextSize = 14 startBtn.BorderSizePixel = 0 startBtn.AutoButtonColor = true
+
+-- Loading Animation startBtn.MouseButton1Click:Connect(function() startBtn.Visible = false for i = 1, 100 do bar.Size = UDim2.new(i/100, 0, 1, 0) percentText.Text = i .. "%" wait(0.6) end end)
+
