@@ -1,0 +1,203 @@
+-- SoyHubTool UI Loader with Final Adjustments
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "SoyHubUILoader"
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 210)
+frame.Position = UDim2.new(0.5, -150, 0.5, -105)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+frame.BorderSizePixel = 0
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
+frame.Active = true
+frame.Draggable = true -- ✅ Drag support
+
+-- Title
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 30)
+title.Position = UDim2.new(0, 0, 0, 10) -- mas mababa na
+title.BackgroundTransparency = 1
+title.Text = "🌿 SoyHubTool"
+title.TextColor3 = Color3.fromRGB(0, 255, 170)
+title.Font = Enum.Font.GothamBlack
+title.TextSize = 18
+
+-- Subtitle
+local subtitle = Instance.new("TextLabel", frame)
+subtitle.Size = UDim2.new(1, 0, 0, 20)
+subtitle.Position = UDim2.new(0, 0, 0, 30) -- mas lapit na sa title
+subtitle.BackgroundTransparency = 1
+subtitle.Text = "🌳 Grow A Garden"
+subtitle.TextColor3 = Color3.fromRGB(180, 255, 180)
+subtitle.Font = Enum.Font.GothamSemibold
+subtitle.TextSize = 14
+
+-- Icon
+local icon = Instance.new("ImageLabel", frame)
+icon.Size = UDim2.new(0, 40, 0, 40)
+icon.Position = UDim2.new(0.5, -20, 0, 60)
+icon.BackgroundTransparency = 1
+icon.Image = "rbxassetid://17093921133"
+
+-- Info Text
+local genText = Instance.new("TextLabel", frame)
+genText.Size = UDim2.new(1, -20, 0, 22)
+genText.Position = UDim2.new(0, 10, 0, 110)
+genText.BackgroundTransparency = 1
+genText.Text = "⚙️ Script Loading Please Wait For A While..."
+genText.TextColor3 = Color3.fromRGB(255, 255, 255)
+genText.Font = Enum.Font.GothamMedium
+genText.TextSize = 14
+genText.TextWrapped = true
+
+-- Loading Bar Background
+local barBg = Instance.new("Frame", frame)
+barBg.Size = UDim2.new(0.85, 0, 0, 12)
+barBg.Position = UDim2.new(0.075, 0, 0, 135)
+barBg.BackgroundColor3 = Color3.fromRGB(60, 70, 100)
+barBg.BorderSizePixel = 0
+Instance.new("UICorner", barBg).CornerRadius = UDim.new(0, 8)
+
+-- Loading Fill Bar
+local barFill = Instance.new("Frame", barBg)
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(0, 255, 170)
+barFill.BorderSizePixel = 0
+Instance.new("UICorner", barFill).CornerRadius = UDim.new(0, 8)
+
+-- Loading Percentage Text
+local percentageText = Instance.new("TextLabel", frame)
+percentageText.Size = UDim2.new(1, 0, 0, 20)
+percentageText.Position = UDim2.new(0, 0, 0, 150)
+percentageText.BackgroundTransparency = 1
+percentageText.Text = "0%"
+percentageText.TextColor3 = Color3.fromRGB(0, 255, 200)
+percentageText.Font = Enum.Font.GothamBold
+percentageText.TextSize = 15
+
+-- Start Button
+local startBtn = Instance.new("TextButton", frame)
+startBtn.Size = UDim2.new(0.6, 0, 0, 30)
+startBtn.Position = UDim2.new(0.2, 0, 0, 175)
+startBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+startBtn.Text = "🌱 Click to Start"
+startBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+startBtn.Font = Enum.Font.GothamBold
+startBtn.TextSize = 15
+startBtn.BorderSizePixel = 0
+Instance.new("UICorner", startBtn).CornerRadius = UDim.new(0, 8)
+
+-- Button Click: Begin Loading
+startBtn.MouseButton1Click:Connect(function()
+	startBtn.Visible = false
+	local duration = 60
+	local steps = 100
+	for i = 1, steps do
+		barFill.Size = UDim2.new(i / steps, 0, 1, 0)
+		percentageText.Text = tostring(i) .. "%"
+		wait(duration / steps)
+	end
+	genText.Text = "✅ Script Loaded Successfully!"
+	percentageText.Text = "100%"
+end)-- SoyHubTool UI Loader with Final Adjustments
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "SoyHubUILoader"
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 210)
+frame.Position = UDim2.new(0.5, -150, 0.5, -105)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+frame.BorderSizePixel = 0
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
+frame.Active = true
+frame.Draggable = true -- ✅ Drag support
+
+-- Title
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 30)
+title.Position = UDim2.new(0, 0, 0, 10) -- mas mababa na
+title.BackgroundTransparency = 1
+title.Text = "🌿 SoyHubTool"
+title.TextColor3 = Color3.fromRGB(0, 255, 170)
+title.Font = Enum.Font.GothamBlack
+title.TextSize = 18
+
+-- Subtitle
+local subtitle = Instance.new("TextLabel", frame)
+subtitle.Size = UDim2.new(1, 0, 0, 20)
+subtitle.Position = UDim2.new(0, 0, 0, 30) -- mas lapit na sa title
+subtitle.BackgroundTransparency = 1
+subtitle.Text = "🌳 Grow A Garden"
+subtitle.TextColor3 = Color3.fromRGB(180, 255, 180)
+subtitle.Font = Enum.Font.GothamSemibold
+subtitle.TextSize = 14
+
+-- Icon
+local icon = Instance.new("ImageLabel", frame)
+icon.Size = UDim2.new(0, 40, 0, 40)
+icon.Position = UDim2.new(0.5, -20, 0, 60)
+icon.BackgroundTransparency = 1
+icon.Image = "rbxassetid://17093921133"
+
+-- Info Text
+local genText = Instance.new("TextLabel", frame)
+genText.Size = UDim2.new(1, -20, 0, 22)
+genText.Position = UDim2.new(0, 10, 0, 110)
+genText.BackgroundTransparency = 1
+genText.Text = "⚙️ Script Loading Please Wait For A While..."
+genText.TextColor3 = Color3.fromRGB(255, 255, 255)
+genText.Font = Enum.Font.GothamMedium
+genText.TextSize = 14
+genText.TextWrapped = true
+
+-- Loading Bar Background
+local barBg = Instance.new("Frame", frame)
+barBg.Size = UDim2.new(0.85, 0, 0, 12)
+barBg.Position = UDim2.new(0.075, 0, 0, 135)
+barBg.BackgroundColor3 = Color3.fromRGB(60, 70, 100)
+barBg.BorderSizePixel = 0
+Instance.new("UICorner", barBg).CornerRadius = UDim.new(0, 8)
+
+-- Loading Fill Bar
+local barFill = Instance.new("Frame", barBg)
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(0, 255, 170)
+barFill.BorderSizePixel = 0
+Instance.new("UICorner", barFill).CornerRadius = UDim.new(0, 8)
+
+-- Loading Percentage Text
+local percentageText = Instance.new("TextLabel", frame)
+percentageText.Size = UDim2.new(1, 0, 0, 20)
+percentageText.Position = UDim2.new(0, 0, 0, 150)
+percentageText.BackgroundTransparency = 1
+percentageText.Text = "0%"
+percentageText.TextColor3 = Color3.fromRGB(0, 255, 200)
+percentageText.Font = Enum.Font.GothamBold
+percentageText.TextSize = 15
+
+-- Start Button
+local startBtn = Instance.new("TextButton", frame)
+startBtn.Size = UDim2.new(0.6, 0, 0, 30)
+startBtn.Position = UDim2.new(0.2, 0, 0, 175)
+startBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+startBtn.Text = "🌱 Click to Start"
+startBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+startBtn.Font = Enum.Font.GothamBold
+startBtn.TextSize = 15
+startBtn.BorderSizePixel = 0
+Instance.new("UICorner", startBtn).CornerRadius = UDim.new(0, 8)
+
+-- Button Click: Begin Loading
+startBtn.MouseButton1Click:Connect(function()
+	startBtn.Visible = false
+	local duration = 60
+	local steps = 100
+	for i = 1, steps do
+		barFill.Size = UDim2.new(i / steps, 0, 1, 0)
+		percentageText.Text = tostring(i) .. "%"
+		wait(duration / steps)
+	end
+	genText.Text = "✅ Script Loaded Successfully!"
+	percentageText.Text = "100%"
+end)
